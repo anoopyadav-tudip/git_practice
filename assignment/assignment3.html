@@ -1,0 +1,248 @@
+<html>
+<head>
+	<!--<script src="myScript.js"></script>-->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	<script>
+		
+		$(document).ready(function(){
+                 nameCheck();
+		});
+	</script>
+
+	<script>
+function nameCheck(){
+
+$("#firstname").on("change", function(){
+var fname=document.getElementById('firstname').value;
+var letters = /^[A-Za-z]+$/;
+
+if(fname.match(letters)){
+$(".error-msg").addClass("hide");
+   
+}else{
+$(".error-msg").removeClass("hide");
+   
+}
+
+});
+}
+	function myFunction()
+	{
+		var fname=document.getElementById('firstname').value;
+		var lname=document.getElementById('lastname').value;
+		var email=document.getElementById('email').value;
+		var pwd=document.getElementById('password').value;
+
+		var lang = document.getElementById("language");
+		var item = lang.options[lang.selectedIndex].value;
+
+		var mob=document.getElementById("mobileno").value;
+    		var date=document.getElementById("bday").value;
+		var gen=document.getElementById("gender").value;
+		var address=document.getElementById("address").value;
+		
+		if(fname=="")
+			alert("First Name Should not be empty");
+		if(lname=="")
+			alert("Last Name Should not be empty");
+		if(email=="")
+			alert("Email Should not be empty");
+		if(pwd=="")
+			alert("Password Name Should not be empty");
+		if(item=="")
+			alert("Select a Language");	
+		if(mob=="")
+			alert("Enter Mobile No");
+		if(date=="")
+			alert("Select Date of Birth");
+		if(address=="")
+			alert("Enter the Address");
+		
+	
+		var letters = /^[A-Za-z]+$/;
+		var phoneno = /^\d{10}$/;
+		var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+
+
+		if(fname.match(letters))
+			true;
+		else
+		{
+			alert("First name only in characters");
+			false;
+		}
+		if(lname.match(letters))
+			true;
+		else
+		{
+			alert("Last name only in characters");
+			false;
+		}
+		if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))    
+    			true; 
+		else
+		{
+    			alert("You have entered an invalid email address!");
+    			false;  
+		}  
+		if(pwd.match(decimal))
+			true;
+		else
+		{
+			alert("Password must contain atleast 1 uppercase, 1 lowercase, 1 special symbol, 1 numeric character.");
+			false;
+		}
+		if(mob.match(phoneno))
+			true;
+		else
+		{
+			alert("Mobile no is not correct");
+			false;
+		}	
+	}
+	
+	</script>
+<style>
+
+		a {text-decoration: none;}
+		.hide {
+display:none;
+}
+.error-msg{
+color:red;
+}
+		div.header
+		{
+			position:absolute;
+			background-color:DimGrey;  
+			border-style:none;
+			width:1380px;
+			height:50px;
+			top:10%;
+			left:0%;
+		}
+		div.tabletitle
+		{
+			position:absolute;
+			border-radius:50px;
+			border-style:none;
+			width:700px;
+			height:35px;
+			top:18%;
+			left:23%;
+			background-color:black;
+		
+		}
+		div.table
+		{
+			position:absolute;
+			border-style:dashed;
+			border-radius:50px;
+			background-color:SkyBlue;
+			width:1050px;
+			height:500px;
+			top:25%;
+			left:2%;
+		}
+		fieldset.fs
+		{
+			display: block;
+    			
+   			margin-right: 2px;
+    			padding-top: 0.35em;
+    			padding-bottom: 0.625em;
+    			padding-left: 0.75em;
+    			padding-right: 0.75em;
+    			border: 2px groove;
+			height:350px;
+			width:500px;
+			margin-left: 25px;
+   			
+			
+		}
+		
+</style>
+</head>
+
+<body>
+
+	<form name="f">
+	<h2><b><p style="font-family:arial; color:Black; font-size:20">Assignment <i style="color:red">No.3</i></p></b></h2>
+		<div class="header">
+			<center>
+				<h1 style="font-family:courier;margin:2px 0px 5px 0px; color:White"><marquee loop="-1" scrollamount="10" width="100%" direction="right">Java Script</marquee></h1>
+			</center>
+		</div>
+		<div class="tabletitle">
+			<h2 style="color:red; margin:2px 0px 0px 150px">Creating a form with Validation Input.</h2>
+		</div>
+
+		<div class="table">
+			<pre style="margin:20px 0px 0px 35px"><b style="font-size:24px">My Account Information</b> <a href="" style="margin:20px 0px 0px 600px; font-size:16px">Help</a></pre>
+			 
+			
+				<fieldset class="fs">
+  				<legend><b>Personalia:</b>
+					</legend>
+					
+						<table>
+							<tr>
+								<td>First Name *
+								<td><input type="text" id="firstname" size="30" placeholder="Enter your first name" required></td>
+								<td><p class="error-msg hide">Invalid Name !</p>
+							</tr>
+							<tr>
+								<td>Last Name *
+								<td><input type="text" id="lastname" size="30" placeholder="Enter your last name" required>	
+							</tr>
+							<tr>
+								<td>Email *
+								<td><input type="email" id="email" size="30" placeholder="Enter your email address">	
+							</tr>
+							<tr>
+								<td>Choose your password *
+								<td><input type="password" id="password" size="30" placeholder="Password must be in 8-15 characters." maxlength="15">	
+							</tr>
+							<tr>
+								<td>Language
+								<td>
+								<select id="language">
+									<option selected disabled value="">Select Language</option>
+  									<option value="english">English</option>
+									<option value="hindi">Hindi</option>
+  									<option value="marathi">Marathi</option>
+  									<option value="others">Others</option>
+								</select>
+							</tr>
+							<tr>
+								<td>Mobile Number
+								<td><input type="text" placeholder="Enter your mobile no" id="mobileno" size="30" maxlength="10">			
+							</tr>
+							<tr>
+								<td>Birthday
+								<td><input type="date" id="bday" placeholder="Enter your birthday">			
+							</tr>
+							<tr>
+								<td>Gender
+								<td><input type="radio" id="gender" value="m" checked>Male	
+										<input type="radio" name="gender" value="f">Female		
+							</tr>
+							<tr>
+								<td>Address
+								<td><textarea rows="5" cols="32" id="address"></textarea>		
+							</tr>
+						</table><br>
+					<p style="margin:0px 0px 0px 140px;">
+						<input type="button" value="Register" name="register" onclick="myFunction()">
+						<input type="reset" value="Cancel" name="cancel">
+					</p>
+						
+ 				</fieldset>
+	
+		</div>
+	</form>
+
+</body>
+</html>
